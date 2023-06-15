@@ -17,7 +17,8 @@ class HomeController extends Controller
     //return $contacModel->where('temperatura','>=',35)->get();
 
     //return $contacModel->update(1748,[ 'temperatura'=>'24.9','id_sensor'=>'1','fecha'=>'2023-08-05 12:10:03']);
-    return $contacModel->delete(1748);
+    //return $contacModel->delete(1748);
+    return $contacModel->where("name","hola que hace' OR 'a'='a'")->get();
 
    // return $contacModel->first();
     return $this->view('home',['title'=>'Inicio','descripcion'=>'pagina inicio 2023']);

@@ -68,9 +68,14 @@ class Model
             $value = $operator;
             $operator = "=";
         }
-        $this->connection->real_escape_string($value);
-        $sql = "SELECT * FROM {$this->table} where {$column} {$operator}'{$value}'";
-        $this->query($sql);
+        //  $this->connection->real_escape_string($value);
+        $sql="SELECT * FROM {$this->table} where {$column} {$operator} ?";
+        $stmt =$this->connection->prepare($sql);
+        $stmt->bind_param('s',$value);
+        $stmt->execute();
+
+       $this->query= $stmt->get_result();
+        
         return $this;
     }
 
