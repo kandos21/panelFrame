@@ -11,4 +11,13 @@ Configuracion modo desarollo
      DocumentRoot "C:/laragon/www/panel/public"
       <Directory "C:/laragon/www/panel">
 6.-Cambiar los parametros de la base de datos en config/database.php
-    
+
+
+
+       <?/*foreach ($contacts as $contacts) : */?>
+            
+                 
+                    <?php /* echo $contacts['id_temperatura']*/ ?>
+                
+            
+        <?php /*endforeach*/ ?>

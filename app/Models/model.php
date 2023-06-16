@@ -30,9 +30,20 @@ class Model
         }
     }
 
-    public function query($sql) //realizar la  consulta
+    public function query($sql, $data = [], $params = null) //realizar la  consulta
     {
-        $this->query = $this->connection->query($sql);
+        if ($data) {
+            if ($params == null) {
+                $params = str_repeat('s', count($data));
+            }
+            $stmt = $this->connection->prepare($sql);
+            $stmt->bind_param($params, ...$data);
+            $stmt->execute();
+            $this->query = $stmt->get_result();
+        } else {
+            $this->query = $this->connection->query($sql);
+        }
+
         return $this;
     }
 
@@ -57,8 +68,8 @@ class Model
 
     public function find($id)
     {
-        $sql = "SELECT * FROM {$this->table} where id_{$this->table} ={$id}";
-        return $this->query($sql)->first();
+        $sql = "SELECT * FROM {$this->table} where id_{$this->table} =?";
+        return $this->query($sql, [$id], 'i')->first();
     }
 
     public function where($column, $operator, $value = null)
@@ -68,14 +79,17 @@ class Model
             $value = $operator;
             $operator = "=";
         }
+
         //  $this->connection->real_escape_string($value);
-        $sql="SELECT * FROM {$this->table} where {$column} {$operator} ?";
-        $stmt =$this->connection->prepare($sql);
+        $sql = "SELECT * FROM {$this->table} where {$column} {$operator} ? ";
+        $this->query($sql, [$value], 's');
+
+
+        /* $stmt =$this->connection->prepare($sql);
         $stmt->bind_param('s',$value);
         $stmt->execute();
+       $this->query= $stmt->get_result();*/
 
-       $this->query= $stmt->get_result();
-        
         return $this;
     }
 
@@ -86,28 +100,37 @@ class Model
         $columns = implode(', ', $columns); //unimos todos los valores de $columns en una sola cadena separadas pro comas
 
         $values = array_values($data); //creamos un array apartir del array $data tomando solo los values del array
-        $values = "'" . implode("', '", $values) . "'"; //unimos todos los valores en un sola cadena separadas como  comillas simples
-        $sql = "INSERT INTO {$this->table}({$columns})values({$values});";  // damos forma a la consulta  llamando a la tabla,columnas y valores
-        $this->query($sql);
+        // $values = "'" . implode("', '", $values) . "'"; //unimos todos los valores en un sola cadena separadas como  comillas simples
+        $sql = "INSERT INTO {$this->table}({$columns})values(" . str_repeat('?,', count($values) - 1) . "?);";  // damos forma a la consulta  llamando a la tabla,columnas y valores
+        $this->query($sql, $values);
         $insert_id = $this->connection->insert_id; // obtenemos el ultimo id que se inserto
         return $this->find($insert_id); //obtenemos todos los datos del ultimo id que se inserto
+
+
     }
 
     public function update($id, $data)
     {
-        $fields = [];
-        foreach ($data as $key => $value) {
-            $fields[] = "{$key}='{$value}'";
+        $fields = []; //declaramos una array
+        foreach ($data as $key => $value) { //se obtinen los valores de data 
+            $fields[] = "{$key}= ? "; //toda ina informacion de data se almacena en el arregro fields
         }
-        $fields = implode(', ', $fields);
-        $sql = "UPDATE {$this->table} SET {$fields} where id_{$this->table}={$id}";
-
-        $this->query($sql);
+       
+        $fields = implode(', ', $fields); //le agreganos una , a cada campo
+        $sql = "UPDATE {$this->table} SET {$fields} where id_{$this->table}=?";
+        
+        $values=array_values($data); //devuelve todos los valores del array array e indexa numéricamente el array.
+        
+        $values[]=$id;    
+        $this->query($sql,$values);
         return $this->find($id);
     }
+
+
     public function delete($id)
-    { 
-       $sql="DELETE  FROM {$this->table} where id_{$this->table}={$id}";
-       $this->query($sql);
+    {
+        $sql = "DELETE  FROM {$this->table} where id_{$this->table}=?";
+        
+        $this->query($sql,[$id],'i');//mandamos la consulta,junto con el id  y el parametro a evaluar "intenger"
     }
 }
