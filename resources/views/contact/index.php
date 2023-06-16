@@ -13,7 +13,7 @@
  <!-- <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">-->
  
   <!-- Theme style -->
-  <link rel="stylesheet" href="panelFrame/css/adminlte.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.1/dist/css/adminlte.min.css">
 </head>
 <body class="hold-transition sidebar-mini">
 <!-- Site wrapper -->
@@ -899,14 +899,13 @@
 <!-- ./wrapper -->
 
 <!-- jQuery -->
-<script src="../../plugins/jquery/jquery.min.js"></script>
+<script src="../../../public/js/adminlte.js"></script>
 <!-- Bootstrap 4 -->
 <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
 <!--<script src="../resources/js/adminlte.min.js"></script>-->
-<script src="../../js/adminlte.min.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="../../../public/js/adminlte.js"></script>
+
+
 
 </body>
 </html>
