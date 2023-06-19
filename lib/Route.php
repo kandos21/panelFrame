@@ -68,6 +68,7 @@ class Route
                 return;
               }*/
             }
-            echo "no se encontro la ruta 404";
+            //echo "no se encontro la ruta 404";
+            //echo $uri;
     }
 }

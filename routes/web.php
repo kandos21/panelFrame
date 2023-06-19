@@ -14,4 +14,7 @@ Route::get('/contacts/:id/edit',  [ContactController::class, 'edit']);
 Route::post('/contacts/:id',  [ContactController::class, 'update']);
 Route::post('contacts/:id/delete', [ContactController::class, 'destroy']);
 
+
+Route::get('/temp',[ContactController::class, 'index']);
+
 Route::dispatch();

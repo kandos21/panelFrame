@@ -1,4 +1,15 @@
 Options -MultiViews
 RewriteEngine On
+RewriteRule ^(.*)\.css$ $1.css [L]
+RewriteRule ^(.*)\.png$ $1.png [L]
+RewriteRule ^(.*)\.jpg$ $1.jpg [L]
+RewriteRule ^(.*)\.js$ $1.js [L]
+RewriteRule ^(.*)\.woff$ $1.woff [L]
+RewriteRule ^(.*)\.woff2$ $1.woff2 [L]
+RewriteRule ^(.*)\.php$ $1.php [L]
+
 RewriteCond %{REQUEST_FILENANE} !-f
 RewriteRule ^ index.php [QSA,L]
+
+#los RewriteRule se agregaron para poder leer los diferentes tipos de archivos
+#

@@ -11,4 +11,10 @@ Configuracion modo desarollo
      DocumentRoot "C:/laragon/www/panel/public"
       <Directory "C:/laragon/www/panel">
 6.-Cambiar los parametros de la base de datos en config/database.php
+
+
+
+Recursos
+configuracion de htaccess
+https://www.forosdelweb.com/f58/problema-htacces-con-css-js-solucionado-679407/
     

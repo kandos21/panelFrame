@@ -13,9 +13,7 @@ class ContactController extends Controller
        
         $model= new contact;
         $contacts=$model->all();
-
         //compact() genera un array con la estructura ['contact'=>$contacts]
-       
       return $this->view('contact.index',compact('contacts'));
     }
     public function create()
@@ -24,7 +22,7 @@ class ContactController extends Controller
     }
     public function store()
     {
-
+     
     }
     public function show($id)
     {
