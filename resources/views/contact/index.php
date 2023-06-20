@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="/plugins/fontawesome-free/css/all.min.css">
-  
+
   <!-- Theme style -->
   <link rel="stylesheet" href="/css/adminlte.min.css">
 </head>
@@ -160,8 +160,8 @@
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
       <!-- Brand Logo -->
       <a href="../../index3.html" class="brand-link">
-        <img src="../../dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-        <span class="brand-text font-weight-light">AdminLTE 3</span>
+        <img src="/img/logo-moscafrut.jpg" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+        <span class="brand-text font-weight-light">METHAT</span>
       </a>
 
       <!-- Sidebar -->
@@ -169,10 +169,10 @@
         <!-- Sidebar user (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
           <div class="image">
-            <img src="../../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+            <img src="/img/logo-moscafrut.jpg" class="img-circle elevation-2" alt="User Image">
           </div>
           <div class="info">
-            <a href="#" class="d-block">Alexander Pierce</a>
+            <a href="#" class="d-block">AT</a>
           </div>
         </div>
 
@@ -693,7 +693,7 @@
                 <li class="nav-item">
                   <a href="../examples/blank.html" class="nav-link active">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Blank Page</p>
+                    <p>Sensores de Temperatura</p>
                   </a>
                 </li>
                 <li class="nav-item">
@@ -838,12 +838,12 @@
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1>Blank Page</h1>
+              <h1>Sensor de temperatura</h1>
             </div>
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item active">Blank Page</li>
+                <li class="breadcrumb-item"><a href="#">inicio</a></li>
+                <li class="breadcrumb-item active">Sensores temp</li>
               </ol>
             </div>
           </div>
@@ -855,9 +855,25 @@
 
         <!-- Default box -->
 
+
+        <div class="row">
+          <div class="col-md-4 col-sm-6 col-12">
+            <div class="info-box">
+              <span class="info-box-icon bg-info"><i class="fas fa-thermometer-full"></i></span>
+
+              <div class="info-box-content">
+                <span id="boxTempPromedio" class=" boxTempPromedio info-box-text">Temp. Promedio</span>
+
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+          </div>
+        </div>
+
         <div class="card">
           <div class="card-header">
-            <h3 class="card-title">tabla temperatura</h3>
+            <h3 class="card-title">grafica temperatura</h3>
 
             <div class="card-tools">
               <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -925,7 +941,7 @@
 
 
 
-       
+
 
       </section>
       <!-- /.content -->
@@ -960,31 +976,104 @@
   <script>
     const ctx = document.getElementById('areaChart');
 
-    new Chart(ctx, {
-      type: 'bar',
+    var grafica = new Chart(ctx, 
+    {
+      type: 'line',
       data: {
         datasets: [{
           label: 'temperatura',
-          boderColor:['black'],
-          borderWidth: 1
+          backgroundColor: ['red'],
+          boderColor: ['red'],
+          borderWidth: 4
         }]
       },
       options: {
+        responsive: true,
+        plugins: {
+          title: {
+            display: true,
+            text: 'chart.js'
+          }
+        },
         scales: {
+          x: {
+            display: true
+          },
           y: {
-            beginAtZero: true
+            display: true
+            // beginAtZero: false
           }
         }
       }
+
     });
 
-    let url="";
+
+    function obtenerDatos()
+    {
+      const options = 
+    {
+      method: "GET"
+    };
+    let url = "http://lumenapi.test/temperatura";
+    fetch(url, options)
+      .then(response => {
+        if (response.ok) return response.json()
+      })
+      .then(datos => mostrarGrafica(datos))
+      .catch(error => console.log(error))
+      
+    }
 
 
+     function mostrarGrafica(sensor)
+    {
+      c = 0;
+      temperatura = 0;
+      sensor.forEach(element => {
+        grafica.data['labels'].push(element.fecha);
+        grafica.data['datasets'][0].data.push(element.temperatura);
+        c++;
+        temperatura = element.temperatura + temperatura;
+        grafica.update();
+      });
+      temperaturaPromedio = temperatura / c;
+      temperaturaPromedio = temperaturaPromedio.toFixed(2);
+      // <span class="info-box-number">1,410</span>
+      const container = document.querySelector(".boxTempPromedio");
+      const span = document.createElement("span");
+      span.innerHTML = '<span class="info-box-number" >' + temperaturaPromedio + '°c</span>';
+      container.appendChild(span);
+      console.log(temperaturaPromedio);
+    }
 
 
+    obtenerDatos();
+   // setInterval(obtenerDatos,3000);
 
     
+      
+    /*const mostrar = (sensor) => {
+      //console.log(sensor);
+      c = 0;
+      temperatura = 0;
+      sensor.forEach(element => {
+        grafica.data['labels'].push(element.fecha);
+        grafica.data['datasets'][0].data.push(element.temperatura);
+        c++;
+        temperatura = element.temperatura + temperatura;
+        grafica.update();
+      });
+      temperaturaPromedio = temperatura / c;
+      temperaturaPromedio = temperaturaPromedio.toFixed(2);
+      // <span class="info-box-number">1,410</span>
+      const container = document.querySelector(".boxTempPromedio");
+      const span = document.createElement("span");
+      span.innerHTML = '<span class="info-box-number" >' + temperaturaPromedio + '°c</span>';
+      container.appendChild(span);
+      console.log(temperaturaPromedio);
+
+    }*/
   </script>
 </body>
 
