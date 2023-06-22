@@ -869,6 +869,21 @@
             </div>
             <!-- /.info-box -->
           </div>
+
+
+
+          <div class="col-md-4 col-sm-6 col-12">
+            <div class="info-box">
+              <span class="info-box-icon bg-info"><i class="fas fa-thermometer-full"></i></span>
+
+              <div class="info-box-content">
+                <span id="boxHumedadPromedio" class=" boxHumedadPromedio info-box-text">H. Promedio</span>
+
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+          </div>
         </div>
 
         <div class="card">
@@ -896,6 +911,34 @@
           <!-- /.card-footer-->
         </div>
         <!-- /.card -->
+
+
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">grafica Humedad</h3>
+
+            <div class="card-tools">
+              <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                <i class="fas fa-minus"></i>
+              </button>
+              <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
+                <i class="fas fa-times"></i>
+              </button>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="chart">
+              <canvas id="areaChartH" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+            </div>
+          </div>
+          <!-- /.card-body -->
+          <div class="card-footer">
+            Grafica de Humedad
+          </div>
+          <!-- /.card-footer-->
+        </div>
+        <!-- /.card -->
+
 
 
         <div class="card">
@@ -975,6 +1018,7 @@
   <!-- <script src="/js/demo.js"></script>-->
   <script>
     const ctx = document.getElementById('areaChart');
+    const ctxH = document.getElementById('areaChartH');
 
     var grafica = new Chart(ctx, 
     {
@@ -1009,6 +1053,41 @@
     });
 
 
+    var graficaH = new Chart(ctxH, 
+    {
+      type: 'line',
+      data: {
+        datasets: [{
+          label: 'humedad',
+          backgroundColor: ['blue'],
+          boderColor: ['blue'],
+          borderWidth: 4
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          title: {
+            display: true,
+            text: 'chart.js'
+          }
+        },
+        scales: {
+          x: {
+            display: true
+          },
+          y: {
+            display: true
+            // beginAtZero: false
+          }
+        }
+      }
+
+    });
+
+
+
+
     function obtenerDatos()
     {
       const options = 
@@ -1022,8 +1101,43 @@
       })
       .then(datos => mostrarGrafica(datos))
       .catch(error => console.log(error))
+
+
+
+      let url2 = "http://lumenapi.test/humedad";
+    fetch(url2, options)
+      .then(response => {
+        if (response.ok) return response.json()
+      })
+      .then(datos => mostrarHumedad(datos))
+      .catch(error => console.log(error))
+      //console.log(datos);
       
     }
+
+
+    function mostrarHumedad(sensor)
+    {
+      c = 0;
+      humedad = 0;
+      sensor.forEach(element => {
+        graficaH.data['labels'].push(element.fecha);
+        graficaH.data['datasets'][0].data.push(element.humedad);
+        c++;
+        humedad = element.humedad + humedad;
+        graficaH.update();
+      });
+      humedadPromedio = humedad / c;
+      humedadPromedio = humedadPromedio.toFixed(2);
+      // <span class="info-box-number">1,410</span>
+      const container = document.querySelector(".boxHumedadPromedio");
+      const span = document.createElement("span");
+      span.innerHTML = '<span class="info-box-number" >' + humedadPromedio + '%</span>';
+      container.appendChild(span);
+      console.log(humedadPromedio);
+    }
+
+    
 
 
      function mostrarGrafica(sensor)
