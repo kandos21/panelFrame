@@ -959,7 +959,9 @@
               <thead>
                 <tr>
                   <th>ID</th>
-                  <th>temperatura</th>
+                  <th>temperatura 1</th>
+                  <th>temperatura 2</th>
+                  <th>Modulo</th>
                   <th>Fecha</th>
                 </tr>
               </thead>
@@ -967,7 +969,9 @@
                 <?php foreach ($contacts as $contact) : ?>
                   <tr>
                     <td><a href="/contacts/<?= $contact['id_temperatura'] ?>"><?= $contact['id_sensor'] ?></a></td>
-                    <td><?= $contact['temperatura'] ?></td>
+                    <td><?= $contact['temperatura1'] ?></td>
+                    <td><?= $contact['temperatura2'] ?></td>
+                    <td><?= $contact['id_modulo'] ?></td>
                     <td><?= $contact['fecha'] ?></td>
                   </tr>
                 <?php endforeach ?>
@@ -1025,11 +1029,18 @@
       type: 'line',
       data: {
         datasets: [{
-          label: 'temperatura',
+          label: 'temperatura1',
           backgroundColor: ['red'],
           boderColor: ['red'],
-          borderWidth: 4
-        }]
+          borderWidth: 2
+        },{
+          label: 'temperatura2',
+          backgroundColor: ['blue'],
+          boderColor: ['blue'],
+          borderWidth: 2
+        }
+        
+      ]
       },
       options: {
         responsive: true,
@@ -1053,12 +1064,12 @@
     });
 
 
-    var graficaH = new Chart(ctxH, 
+   /* var graficaH = new Chart(ctxH, 
     {
       type: 'line',
       data: {
         datasets: [{
-          label: 'humedad',
+          label: 'humedad1',
           backgroundColor: ['blue'],
           boderColor: ['blue'],
           borderWidth: 4
@@ -1083,7 +1094,7 @@
         }
       }
 
-    });
+    });*/
 
 
 
@@ -1143,15 +1154,18 @@
      function mostrarGrafica(sensor)
     {
       c = 0;
-      temperatura = 0;
+      temperatura1 = 0;
+      temperatura2=0;
       sensor.forEach(element => {
         grafica.data['labels'].push(element.fecha);
-        grafica.data['datasets'][0].data.push(element.temperatura);
+        grafica.data['datasets'][0].data.push(element.temperatura1);
+        grafica.data['datasets'][0].data.push(element.temperatura2);
         c++;
-        temperatura = element.temperatura + temperatura;
+        temperatura1 = element.temperatura1 + temperatura1;
+        temperatura2=element.temperatura2+temperatura2;
         grafica.update();
       });
-      temperaturaPromedio = temperatura / c;
+      temperaturaPromedio = temperatura1 / c;
       temperaturaPromedio = temperaturaPromedio.toFixed(2);
       // <span class="info-box-number">1,410</span>
       const container = document.querySelector(".boxTempPromedio");
