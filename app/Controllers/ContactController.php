@@ -17,11 +17,21 @@ class ContactController extends Controller
       return $this->view('contact.index',compact('contacts'));
     }
     public function create()
-    {
-
+    {   
+        return $this->view('contact.create');
     }
     public function store()
-    {
+    { 
+        
+           
+          $data=$_POST;
+        //return $data; //retonar datos del formulario
+         $model= new contact;
+
+         $model->create($data);
+
+        return $this->redirect('/contacts');
+        
      
     }
     public function show($id)

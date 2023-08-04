@@ -20,7 +20,7 @@ class TemperaturaController extends Controller
     }
     public function create()
     {
-
+      return $this->view('contact.create');
     }
     public function store()
     {

@@ -70,7 +70,11 @@
                 <img src="../../dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
                 <div class="media-body">
                   <h3 class="dropdown-item-title">
-                    Brad Diesel
+                    
+
+
+
+
                     <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
                   </h3>
                   <p class="text-sm">Call me whenever you can...</p>
@@ -842,7 +846,7 @@
             </div>
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item"><a href="#">inicio</a></li>
+                <li class="breadcrumb-item"><a href="/contacts/create">inicio</a></li>
                 <li class="breadcrumb-item active">Sensores temp</li>
               </ol>
             </div>
@@ -1159,10 +1163,10 @@
       sensor.forEach(element => {
         grafica.data['labels'].push(element.fecha);
         grafica.data['datasets'][0].data.push(element.temperatura1);
-        grafica.data['datasets'][0].data.push(element.temperatura2);
+        //grafica.data['datasets'][0].data.push(element.temperatura2);
         c++;
         temperatura1 = element.temperatura1 + temperatura1;
-        temperatura2=element.temperatura2+temperatura2;
+        //temperatura2=element.temperatura2+temperatura2;
         grafica.update();
       });
       temperaturaPromedio = temperatura1 / c;
