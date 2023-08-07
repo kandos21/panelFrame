@@ -30,6 +30,7 @@ use App\Models\temperatura;
         }
         public function create()
         {
+            return $this->view('temperatura.create');
         }
         public function store()
         {
