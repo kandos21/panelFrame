@@ -4,6 +4,7 @@
 namespace App\Controllers;
 
 use App\Models\Contact;
+use App\Models\Model;
 
 class ContactController extends Controller
 {
@@ -35,21 +36,34 @@ class ContactController extends Controller
      
     }
     public function show($id)
-    {
-        return "se encontrara el id $id";
+    {  
+        $model= new contact;
+        $contact=$model->find($id);
+    
+        return $this->view("contact.show",compact('contact'));
     }
 
     public function edit($id)
-    {
-       return "se encontrara el id";
+    {   
+        $model= new contact;
+        $contact=$model->find($id);
+        return $this->view("contact.edit",compact('contact'));
     }
     public function update($id)
     {
+       $data=$_POST;
+       $model= new contact;
 
+       $model->update($id,$data);
+       $this->redirect("/contacts/{$id}");
+
+       
     }
     public function destroy($id)
     {
-
+        $model=new contact;
+        $model->delete($id);
+        $this->redirect("/contacts");
     }
 
 }
