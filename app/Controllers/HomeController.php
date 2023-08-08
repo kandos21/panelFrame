@@ -1,7 +1,7 @@
 <?php
  
  namespace App\Controllers; 
- use App\Models\contact;
+ use App\Models\Contact;
 
 class HomeController extends Controller
 {
