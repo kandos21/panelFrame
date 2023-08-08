@@ -1,8 +1,7 @@
 <?php
 
 namespace App\Controllers; 
-use App\Models\temperatura;
-
+use App\Models\Temperatura;
 
 
 
