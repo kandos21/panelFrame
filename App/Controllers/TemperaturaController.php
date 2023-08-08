@@ -31,12 +31,14 @@ use App\Models\Temperatura;
             return $this->view('temperatura.create');
         }
         public function store()
-        {
+        {   
+            $fecha = date("Y-m-d H:i:s", strtotime('now'));
             //$model = new temperatura;
             //$contacts = $model->all();
             //return $this->$contacts = json_encode($contacts);
-
-            $data=$_POST;
+             
+             $data=$_POST;
+             array_push($data,$fecha);
             //return $data; //retonar datos del formulario
              $model= new temperatura;
     
