@@ -2,6 +2,8 @@
  
  namespace App\Controllers; 
  use App\Models\Contact;
+use App\Models\Model;
+
 
 class HomeController extends Controller
 {
@@ -18,7 +20,7 @@ class HomeController extends Controller
     //return $contacModel->where('temperatura','>=',35)->get();
 
     //return $contacModel->update(1748,[ 'temperatura'=>'24.9','id_sensor'=>'1','fecha'=>'2023-08-05 12:10:03']);
-    return $contacModel->delete(1751);
+   // return $contacModel->delete(1751);
     //return $contacModel->where("temperatura","30 ' OR 'a'='a' ")->get();
 
    // return $contacModel->first();

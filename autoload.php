@@ -5,7 +5,7 @@ spl_autoload_register(function($clase)
 
 
     $ruta='../'.str_replace("\\","/",$clase).".php";
-    
+    echo $ruta;
     if(file_exists($ruta))
     {
       require_once $ruta;

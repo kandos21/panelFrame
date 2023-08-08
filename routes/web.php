@@ -8,7 +8,7 @@ use App\Controllers\HomeController;
 
 
 
-Route::get('/',[HomeController::class, 'index']);
+Route::get('/',[ContactController::class, 'index']);
 Route::get('/contacts',[ContactController::class, 'index']);
 Route::get('/contacts/create',[ContactController::class, 'create']);
 Route::post('/contacts', [ContactController::class, 'store']);
