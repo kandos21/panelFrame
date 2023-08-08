@@ -1,10 +1,10 @@
+<?php
 
-
- <?php
-
-   
-use App\Controllers\Controller;
+namespace App\Controllers; 
 use App\Models\temperatura;
+
+
+
 
     class TemperaturaController extends Controller
     {
@@ -13,20 +13,19 @@ use App\Models\temperatura;
         {
            
             $model = new temperatura;
-            $contacts = $model->all();
-            foreach ($$contacts as $contact)
+           return $contacts = $model->all();
+           /* foreach ($$contacts as $contact)
              {
               $id_tempteratura= $contact['id_temperatura'];
               $temperatura=$contact['temperatura'];
               $fecha=$contact['fecha'];
 
-             }
+             }*/
 
-            
-
+             
 
             //compact() genera un array con la estructura ['contact'=>$contacts]
-            // return $this->view('contact.index',compact('contacts'));
+             //return $this->view('contact.index',compact('contacts'));
         }
         public function create()
         {
@@ -34,9 +33,17 @@ use App\Models\temperatura;
         }
         public function store()
         {
-            $model = new temperatura;
-            $contacts = $model->all();
-            return $this->$contacts = json_encode($contacts);
+            //$model = new temperatura;
+            //$contacts = $model->all();
+            //return $this->$contacts = json_encode($contacts);
+
+            $data=$_POST;
+            //return $data; //retonar datos del formulario
+             $model= new temperatura;
+    
+             return $model->create($data);
+    
+           // return $this->redirect('/dispositivo');
         }
         public function show($id)
         {

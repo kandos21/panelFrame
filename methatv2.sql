@@ -117,13 +117,10 @@ CREATE TABLE IF NOT EXISTS `dispositivo` (
   PRIMARY KEY (`id_dispositivo`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=245 DEFAULT CHARSET=utf8mb3;
 
--- Volcando datos para la tabla methat.dispositivo: ~2 rows (aproximadamente)
+-- Volcando datos para la tabla methat.dispositivo: ~4 rows (aproximadamente)
 INSERT INTO `dispositivo` (`id_dispositivo`, `dispositivo_nombre`, `dispositivo_tipo`, `ram`, `dispositivo_modelo`, `dispositivo_fabricante`, `dispositivo_serie`, `flash`, `version_hardware`) VALUES
-	(1, 'C469666FA12', '0', 'M', NULL, NULL, NULL, NULL, NULL),
-	(2, '0C4696664RW', '0', 'S', NULL, NULL, NULL, NULL, NULL),
-	(242, 'planta1', '0', NULL, 'esp32', 'esdpred', 'ege343g', NULL, NULL),
-	(243, 'planta1', '0', NULL, 'esp32', 'esdpred', 'ege343g', NULL, NULL),
-	(244, 'planta1', '0', NULL, 'esp32', 'esdpred', 'ege343g', NULL, NULL);
+	(2, 'MASTER_PLANTA', '0', '0', 'ESP32-S3', 'HELTEC', '3C6266FA12F4', NULL, NULL),
+	(242, 'SLAVE1_PLANTA01', '0', NULL, 'esp32-S3', 'HELTEC', 'C46966FA12F4', NULL, NULL);
 
 -- Volcando estructura para tabla methat.humedad
 CREATE TABLE IF NOT EXISTS `humedad` (
@@ -137,7 +134,7 @@ CREATE TABLE IF NOT EXISTS `humedad` (
   KEY `FK_temperatura_sensor` (`id_sensor`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=6083 DEFAULT CHARSET=utf8mb3 ROW_FORMAT=DYNAMIC;
 
--- Volcando datos para la tabla methat.humedad: ~234 rows (aproximadamente)
+-- Volcando datos para la tabla methat.humedad: ~1,122 rows (aproximadamente)
 INSERT INTO `humedad` (`id_humedad`, `humedad1`, `id_modulo`, `id_sensor`, `fecha`, `valor_analogico`) VALUES
 	(4847, 0, '3C6266FA12F4', 'C46966FA12F4', '2023-08-02 20:39:21', NULL),
 	(4848, 0, '3C6266FA12F4', 'C46966FA12F4', '2023-08-02 20:39:24', NULL),
@@ -1426,9 +1423,9 @@ CREATE TABLE IF NOT EXISTS `temperatura` (
   `id_sensor` varchar(50) NOT NULL DEFAULT '0',
   `fecha` datetime DEFAULT NULL,
   PRIMARY KEY (`id_temperatura`)
-) ENGINE=InnoDB AUTO_INCREMENT=7050 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=7055 DEFAULT CHARSET=utf8mb3;
 
--- Volcando datos para la tabla methat.temperatura: ~333 rows (aproximadamente)
+-- Volcando datos para la tabla methat.temperatura: ~338 rows (aproximadamente)
 INSERT INTO `temperatura` (`id_temperatura`, `temperatura1`, `temperatura2`, `id_modulo`, `id_sensor`, `fecha`) VALUES
 	(6717, 24.19, 22.81, '3C6266FA12F4', 'C46966FA12F4', '2023-08-04 18:05:02'),
 	(6718, 24.19, 22.75, '3C6266FA12F4', 'C46966FA12F4', '2023-08-04 18:05:14'),
@@ -1762,7 +1759,12 @@ INSERT INTO `temperatura` (`id_temperatura`, `temperatura1`, `temperatura2`, `id
 	(7046, 24.38, 23.19, '3C6266FA12F4', 'C46966FA12F4', '2023-08-04 18:27:02'),
 	(7047, 24.38, 23.19, '3C6266FA12F4', 'C46966FA12F4', '2023-08-04 18:27:04'),
 	(7048, 24.38, 23.19, '3C6266FA12F4', 'C46966FA12F4', '2023-08-04 18:27:06'),
-	(7049, 24.38, 23.19, '3C6266FA12F4', 'C46966FA12F4', '2023-08-04 18:27:08');
+	(7049, 24.38, 23.19, '3C6266FA12F4', 'C46966FA12F4', '2023-08-04 18:27:08'),
+	(7050, 30.5, 25, 'CF545645646', 'KG546564564', '2023-06-24 14:00:00'),
+	(7051, 30.5, 25, 'CF545645646', 'KG546564564', '2023-06-24 14:00:00'),
+	(7052, 30.5, 25, 'CF545645646', 'KG546564564', '2023-08-08 14:00:00'),
+	(7053, 30.5, 25, 'CF545645646', 'KG546564564', '2023-06-24 14:00:00'),
+	(7054, 34.5, 0, '0', '0', NULL);
 
 -- Volcando estructura para tabla methat.ubicacion
 CREATE TABLE IF NOT EXISTS `ubicacion` (

@@ -2,8 +2,10 @@
 
 use App\Controllers\ContactController;
 use App\Controllers\DispositivoController;
+use App\Controllers\TemperaturaController;
 use Lib\Route;
 use App\Controllers\HomeController;
+
 
 
 Route::get('/',[HomeController::class, 'index']);
