@@ -4,7 +4,7 @@
 namespace App\Controllers;
 
 use App\Models\Contact;
-use App\Models\Model;
+//use App\Models\Model;
 
 class ContactController extends Controller
 {

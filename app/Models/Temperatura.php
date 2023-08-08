@@ -4,7 +4,7 @@ namespace App\Models;
 
 
 
-class temperatura extends Model
+class Temperatura extends Model
 {
    protected $table ='temperatura';
 }

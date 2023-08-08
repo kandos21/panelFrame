@@ -4,7 +4,7 @@
 namespace App\Controllers;
 
 use App\Models\Dispositivo;
-use App\Models\Model;
+//use App\Models\Model;
 
 class DispositivoController extends Controller
 {

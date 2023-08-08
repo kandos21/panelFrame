@@ -4,7 +4,7 @@ namespace App\Models;
 
 
 
-class contact extends Model
+class Contact extends Model
 {
    protected $table ='dispositivo';
 }

@@ -2,7 +2,7 @@
  
  namespace App\Controllers; 
  use App\Models\Contact;
-use App\Models\Model;
+//use App\Models\Model;
 
 
 class HomeController extends Controller
