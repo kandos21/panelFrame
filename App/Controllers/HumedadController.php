@@ -12,7 +12,7 @@ use App\Models\Humedad;
         {
            
             $model = new humedad;
-           return $contacts = $model->all();
+           return $humedads = $model->all();
            print("entro a index");
            /* foreach ($$contacts as $contact)
              {

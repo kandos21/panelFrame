@@ -10,9 +10,9 @@ use App\Models\Temperatura;
         {
            
             $model = new temperatura;
-           return $contacts = $model->all();
+           return $temperaturas = $model->all();
            print("entro a index");
-           /* foreach ($$contacts as $contact)
+           /* foreach ($$temperaturas as $temperatura)
              {
               $id_tempteratura= $contact['id_temperatura'];
               $temperatura=$contact['temperatura'];
