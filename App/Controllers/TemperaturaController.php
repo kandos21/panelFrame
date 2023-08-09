@@ -36,7 +36,7 @@ use App\Models\Temperatura;
             //$model = new temperatura;
             //$contacts = $model->all();
             //return $this->$contacts = json_encode($contacts);
-            
+            print("entro a store");
              $data=$_POST;
              var_dump($data);
              $keyData="fecha";
