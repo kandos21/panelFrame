@@ -13,6 +13,7 @@ use App\Models\Temperatura;
            
             $model = new temperatura;
            return $contacts = $model->all();
+           print("entro a index");
            /* foreach ($$contacts as $contact)
              {
               $id_tempteratura= $contact['id_temperatura'];
@@ -27,7 +28,7 @@ use App\Models\Temperatura;
              //return $this->view('contact.index',compact('contacts'));
         }
         public function create()
-        {
+        {  print("entro a create");
             return $this->view('temperatura.create');
         }
         public function store()
