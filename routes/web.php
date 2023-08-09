@@ -3,6 +3,7 @@
 use App\Controllers\ContactController;
 use App\Controllers\DispositivoController;
 use App\Controllers\TemperaturaController;
+use App\Controllers\HumedadController;
 use Lib\Route;
 use App\Controllers\HomeController;
 

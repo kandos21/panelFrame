@@ -37,7 +37,7 @@ use App\Models\Humedad;
             //$model = new humedad;
             //$contacts = $model->all();
             //return $this->$contacts = json_encode($contacts);
-            print("entro a store");
+            print("entro a store humedad");
              $data=$_POST;
              var_dump($data);
              $keyData="fecha";
