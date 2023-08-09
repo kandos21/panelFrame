@@ -1,21 +1,23 @@
 <?php
 
 namespace App\Controllers; 
-use App\Models\Temperatura;
+use App\Models\Humedad;
 
-    class TemperaturaController extends Controller
+
+
+    class HumedadController extends Controller
     {
 
         public function index()
         {
            
-            $model = new temperatura;
+            $model = new humedad;
            return $contacts = $model->all();
            print("entro a index");
            /* foreach ($$contacts as $contact)
              {
-              $id_tempteratura= $contact['id_temperatura'];
-              $temperatura=$contact['temperatura'];
+              $id_tempteratura= $contact['id_humedad'];
+              $humedad=$contact['humedad'];
               $fecha=$contact['fecha'];
 
              }*/
@@ -27,12 +29,12 @@ use App\Models\Temperatura;
         }
         public function create()
         {  print("entro a create");
-            return $this->view('temperatura.create');
+            return $this->view('humedad.create');
         }
         public function store()
         {   
             $fecha = date("Y-m-d H:i:s", strtotime('now'));
-            //$model = new temperatura;
+            //$model = new humedad;
             //$contacts = $model->all();
             //return $this->$contacts = json_encode($contacts);
             print("entro a store");
@@ -42,7 +44,7 @@ use App\Models\Temperatura;
              $valorData=$fecha;
              $data[$keyData]=$valorData;
             //return $data; //retonar datos del formulario
-             $model= new temperatura;
+             $model= new humedad;
     
              return $model->create($data);
     

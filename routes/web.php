@@ -36,6 +36,15 @@ Route::post('/temperatura/:id',  [TemperaturaController::class, 'update']);
 Route::post('temperatura/:id/delete', [TemperaturaController::class, 'destroy']);
 
 
+Route::get('/humedad',[HumedadController::class, 'index']);
+Route::get('/humedad/create',[HumedadController::class, 'create']);
+Route::post('/humedad', [HumedadController::class, 'store']);
+Route::get('/humedad/:id',  [HumedadController::class, 'show']);
+Route::get('/humedad/:id/edit',  [HumedadController::class, 'edit']);
+Route::post('/humedad/:id',  [HumedadController::class, 'update']);
+Route::post('humedad/:id/delete', [HumedadController::class, 'destroy']);
+
+
 Route::get('/temp',[ContactController::class, 'index']);
 
 Route::dispatch();
