@@ -36,9 +36,12 @@ use App\Models\Temperatura;
             //$model = new temperatura;
             //$contacts = $model->all();
             //return $this->$contacts = json_encode($contacts);
-             
+            
              $data=$_POST;
-             array_push($data,$fecha);
+             var_dump($data);
+             $keyData="fecha";
+             $valorData=$fecha;
+             $data[$keyData]=$valorData;
             //return $data; //retonar datos del formulario
              $model= new temperatura;
     
