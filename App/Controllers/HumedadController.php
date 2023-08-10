@@ -13,17 +13,12 @@ use App\Models\Humedad;
            
             $model = new humedad;
            return $humedads = $model->all();
-           print("entro a index");
            /* foreach ($$contacts as $contact)
              {
               $id_tempteratura= $contact['id_humedad'];
               $humedad=$contact['humedad'];
               $fecha=$contact['fecha'];
-
              }*/
-
-             
-
             //compact() genera un array con la estructura ['contact'=>$contacts]
              //return $this->view('contact.index',compact('contacts'));
         }

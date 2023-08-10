@@ -11,22 +11,17 @@ use App\Models\Temperatura;
            
             $model = new temperatura;
            return $temperaturas = $model->all();
-           print("entro a index");
            /* foreach ($$temperaturas as $temperatura)
              {
               $id_tempteratura= $contact['id_temperatura'];
               $temperatura=$contact['temperatura'];
               $fecha=$contact['fecha'];
-
              }*/
-
-             
-
             //compact() genera un array con la estructura ['contact'=>$contacts]
              //return $this->view('contact.index',compact('contacts'));
         }
         public function create()
-        {  print("entro a create");
+        {  
             return $this->view('temperatura.create');
         }
         public function store()
@@ -35,15 +30,12 @@ use App\Models\Temperatura;
             //$model = new temperatura;
             //$contacts = $model->all();
             //return $this->$contacts = json_encode($contacts);
-            print("entro a store");
              $data=$_POST;
-             var_dump($data);
              $keyData="fecha";
              $valorData=$fecha;
              $data[$keyData]=$valorData;
             //return $data; //retonar datos del formulario
              $model= new temperatura;
-    
              return $model->create($data);
     
            // return $this->redirect('/dispositivo');

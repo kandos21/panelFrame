@@ -4,6 +4,7 @@ use App\Controllers\ContactController;
 use App\Controllers\DispositivoController;
 use App\Controllers\TemperaturaController;
 use App\Controllers\HumedadController;
+use App\Controllers\TemplateController;
 use Lib\Route;
 use App\Controllers\HomeController;
 
