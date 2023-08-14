@@ -50,7 +50,7 @@ use App\Controllers\TemplateController;
               <span class="info-box-icon bg-info"><i class="fas fa-thermometer-full"></i></span>
 
               <div class="info-box-content">
-                <span id="boxTempPromedio" class=" boxTempPromedio info-box-text">Temp. Promedio</span>
+                <span id="boxTempPromedio" class=" boxTempPromedio info-box-text">Temperatura Promedio</span>
 
               </div>
               <!-- /.info-box-content -->
