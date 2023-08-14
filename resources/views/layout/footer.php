@@ -19,10 +19,7 @@
   <!-- AdminLTE App -->
   <script src="/js/adminlte.min.js"></script>
   <!-- AdminLTE for demo purposes -->
-  <script src="/plugins/chartjs/Chart.min.js"></script>
-
+  <!--<script src="/plugins/chartjs/Chart.min.js"></script>-->
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
   <!-- <script src="/js/demo.js"></script>-->
 
-</body>
-
-</html>
