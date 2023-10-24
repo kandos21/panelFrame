@@ -1,0 +1,3 @@
+SELECT id_medicion,medicion,temperaturaunidad,simbolo,fecha,nombre_sensor,serie_sensor,dispositivo_nombre,ram,dispositivo_modelo,dispositivo_fabricante,dispositivo_serie,ts.nombre
+FROM medicion_sensor AS ms,sensor AS isen,dispositivo AS dis,tipo_dispositivo AS tdis,tipo_sensor AS ts 
+WHERE ms.id_sensor=isen.id_sensor AND isen.id_dispositivo=dis.id_dispositivo AND dis.dispositivo_tipo=tdis.id_tipo_dispositivo AND ts.id_tipo_sensor=isen.id_tipo_sensor

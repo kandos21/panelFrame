@@ -74,28 +74,28 @@ class Model
 
     public function where($column, $operator, $value = null)
     {
-
         if ($value == null) {
             $value = $operator;
             $operator = "=";
         }
-
         //  $this->connection->real_escape_string($value);
         $sql = "SELECT * FROM {$this->table} where {$column} {$operator} ? ";
         $this->query($sql, [$value], 's');
-
-
         /* $stmt =$this->connection->prepare($sql);
         $stmt->bind_param('s',$value);
         $stmt->execute();
        $this->query= $stmt->get_result();*/
-
         return $this;
+    }
+
+    public function ultimateR()
+    {
+        $sql="SELECT * FROM {$this->table} ORDER by id_{$this->table} ASC LIMIT 1";
+        return $this->query($sql);
     }
 
     public function create($data)
     {
-
         $columns = array_keys($data); //creamos un array apartir del array de $data tomando solo los valores de key
         $columns = implode(', ', $columns); //unimos todos los valores de $columns en una sola cadena separadas pro comas
 
@@ -105,7 +105,6 @@ class Model
         $this->query($sql, $values);
         $insert_id = $this->connection->insert_id; // obtenemos el ultimo id que se inserto
         return $this->find($insert_id); //obtenemos todos los datos del ultimo id que se inserto
-
 
     }
 

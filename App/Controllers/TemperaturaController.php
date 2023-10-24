@@ -11,14 +11,7 @@ use App\Models\Temperatura;
            
             $model = new temperatura;
            return $temperaturas = $model->all();
-           /* foreach ($$temperaturas as $temperatura)
-             {
-              $id_tempteratura= $contact['id_temperatura'];
-              $temperatura=$contact['temperatura'];
-              $fecha=$contact['fecha'];
-             }*/
-            //compact() genera un array con la estructura ['contact'=>$contacts]
-             //return $this->view('contact.index',compact('contacts'));
+           
         }
         public function create()
         {  
@@ -27,9 +20,7 @@ use App\Models\Temperatura;
         public function store()
         {   
             $fecha = date("Y-m-d H:i:s", strtotime('now'));
-            //$model = new temperatura;
-            //$contacts = $model->all();
-            //return $this->$contacts = json_encode($contacts);
+           
              $data=$_POST;
              $keyData="fecha";
              $valorData=$fecha;
@@ -43,6 +34,12 @@ use App\Models\Temperatura;
         public function show($id)
         {
             return "se encontrara el id $id";
+        }
+
+        public function showUltimate()
+        {
+            $model = new temperatura;
+            return $ultimoRegistro = $model->ultimateR();
         }
 
         public function edit($id)

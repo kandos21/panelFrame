@@ -33,6 +33,7 @@ Route::get('/temperatura',[TemperaturaController::class, 'index']);
 Route::get('/temperatura/create',[TemperaturaController::class, 'create']);
 Route::post('/temperatura', [TemperaturaController::class, 'store']);
 Route::get('/temperatura/:id',  [TemperaturaController::class, 'show']);
+Route::get('/temperatura/ultimate',  [TemperaturaController::class, 'showUltimate']);
 Route::get('/temperatura/:id/edit',  [TemperaturaController::class, 'edit']);
 Route::post('/temperatura/:id',  [TemperaturaController::class, 'update']);
 Route::post('temperatura/:id/delete', [TemperaturaController::class, 'destroy']);
