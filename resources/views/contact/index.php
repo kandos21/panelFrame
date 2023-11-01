@@ -321,14 +321,15 @@ $template->header();
 
 
 
-<?php // foreach ($contacts as $contact) : 
+<?php  foreach ($contacts as $contact) : 
 ?>
-<!-- <tr>
+ <tr>
                     <td><a href="/contacts/<?= $contact['id_temperatura'] ?>"><?= $contact['id_sensor'] ?></a></td>
-                    <td><?= $contact['temperatura1'] ?></td>
-                    <td><?= $contact['temperatura2'] ?></td>
+                    <td><?= $contact['temperatura'] ?></td>
+                    <td><?= $contact['ids'] ?></td>
+                    
                     <td><?= $contact['id_modulo'] ?></td>
                     <td><?= $contact['fecha'] ?></td>
-                  </tr>-->
-<?php //endforeach 
+                  </tr>
+<?php endforeach 
 ?>
