@@ -26,12 +26,12 @@ $template->header();
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1>Slave Methat</h1>
+              <h1>SN:XXXXXXXXXX</h1>
             </div>
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="/contacts/create">inicio</a></li>
-                <li class="breadcrumb-item active">Temperatura</li>
+                <li class="breadcrumb-item active">DIETA 02</li>
               </ol>
             </div>
           </div>
@@ -63,13 +63,13 @@ $template->header();
             <div class="info-box bg-success">
               <span class="info-box-icon"><i class="fas fa-temperature-low"></i></span>
               <div class="info-box-content">
-                <span class="info-box-text">Temperatura</span>
+                <span class="info-box-text">Temperatura promedio</span>
                 <span class="info-box-number">50 ¨C</span>
                 <div class="progress">
                   <div class="progress-bar" style="width: 50%"></div>
                 </div>
                 <span class="progress-description">
-                  13/08/2023 15:00:50
+                  ultimas 2 hrs.
                 </span>
               </div>
 
@@ -81,13 +81,13 @@ $template->header();
             <div class="info-box bg-primary">
               <span class="info-box-icon"><i class="fas fa-tint"></i></span>
               <div class="info-box-content">
-                <span class="info-box-text">Humedad</span>
+                <span class="info-box-text">Humedad promedio</span>
                 <span class="info-box-number">2 %</span>
                 <div class="progress">
                   <div class="progress-bar" style="width: 2%"></div>
                 </div>
                 <span class="progress-description">
-                  13/08/2023 15:00:50
+                ultimas 2 hrs.
                 </span>
               </div>
 
@@ -97,10 +97,22 @@ $template->header();
         </div>
 
         <div class="row">
-          <div class="col-md-12 col-sm-12 col-12">
+          <div class="col-md-6 col-sm-6 col-6">
             <div class="card">
               <div class="card-header">
+                 Sensor Temperatura 1
+              </div>
+              <div class="card-body">
+                <div id="chart">
 
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-sm-6 col-6">
+            <div class="card">
+              <div class="card-header">
+                 Sensor Humedad 2
               </div>
               <div class="card-body">
                 <div id="chart">
@@ -111,11 +123,14 @@ $template->header();
           </div>
         </div>
 
+
+       
+
         <div class="row">
           <div class="col-md-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">DataTable with default features</h3>
+                <h3 class="card-title">Ultimas 24 horas </h3>
               </div>
 
               <div class="card-body">
@@ -127,7 +142,7 @@ $template->header();
                       </div>
                     </div>
                     <div class="col-sm-12 col-md-6">
-                      <div id="example1_filter" class="dataTables_filter"><label>Search:<input type="search" class="form-control form-control-sm" placeholder="" aria-controls="example1"></label></div>
+                      <div id="example1_filter" class="dataTables_filter"><label>busqueda:<input type="search" class="form-control form-control-sm" placeholder="" aria-controls="example1"></label></div>
                     </div>
                   </div>
                   <div class="row">
@@ -278,13 +293,6 @@ $template->header();
   var chart = new ApexCharts(document.querySelector("#chart"), options);
 
   chart.render();
-
-
-
-
-
-
-
 
   function obtenerDatos() {
     const options = {
