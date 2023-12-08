@@ -1,0 +1,538 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Bootstrap CSS -->
+  <!--<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">-->
+  <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+  <title>METHAT</title>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg shadow-sm navbar-dark bg-success">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">METHAT</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/update">OTA</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Configuracion</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <br>
+
+  <div class="container text-center">
+    <div class="row justify-content-start">
+      <div class="col-12">
+        <div class="card  border shadow-sm mb-10">
+          <div class="card-header bg-transparent"></div>
+          <div class="card-body text-success">
+            <h5 class="card-title">Slave Edificio A E1</h5>
+            <div class="card-text" id="datoID"></div>
+          </div>
+          <div class="card-footer bg-transparent">v 1.1.6S</div>
+        </div>
+      </div>
+    </div>
+    <br>
+
+    <div class="row justify-content-start">
+      <div class="col-md-4  col-sm-12">
+        <div class="card bordeR mb-4 shadow-sm">
+          <div class="card-body text-success">
+            <div id="chart-temperature1" class="container"></div>
+          </div>
+          <div class="card-footer bg-transparent  text-center">
+            <button type="button" class="btn btn-success">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-thermometer" viewBox="0 0 16 16">
+                <path d="M8 14a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z" />
+                <path
+                  d="M8 0a2.5 2.5 0 0 0-2.5 2.5v7.55a3.5 3.5 0 1 0 5 0V2.5A2.5 2.5 0 0 0 8 0zM6.5 2.5a1.5 1.5 0 1 1 3 0v7.987l.167.15a2.5 2.5 0 1 1-3.333 0l.166-.15V2.5z" />
+              </svg>
+                <span class="badge text-bg-secondary" id="text-temperature1"></span>(C)
+            </button>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-md-4  col-sm-12">
+        <div class="card bordeR mb-4 shadow-sm">
+          <div class="card-body text-success">
+            <div id="chart-temperature2" class="container"></div>
+          </div>
+          <div class="card-footer bg-transparent  text-center">
+            <button type="button" class="btn btn-success">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-thermometer" viewBox="0 0 16 16">
+                <path d="M8 14a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z" />
+                <path
+                  d="M8 0a2.5 2.5 0 0 0-2.5 2.5v7.55a3.5 3.5 0 1 0 5 0V2.5A2.5 2.5 0 0 0 8 0zM6.5 2.5a1.5 1.5 0 1 1 3 0v7.987l.167.15a2.5 2.5 0 1 1-3.333 0l.166-.15V2.5z" />
+              </svg>
+                <span class="badge text-bg-secondary" id="text-temperature2"></span>(C)
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4  col-sm-12">
+
+
+        <div class="card bordeR mb-4 shadow-sm">
+          <div class="card-body text-success">
+            <div id="chart-temperature3" class="container"></div>
+          </div>
+          <div class="card-footer bg-transparent  text-center">
+            <button type="button" class="btn btn-success">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-thermometer" viewBox="0 0 16 16">
+                <path d="M8 14a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z" />
+                <path
+                  d="M8 0a2.5 2.5 0 0 0-2.5 2.5v7.55a3.5 3.5 0 1 0 5 0V2.5A2.5 2.5 0 0 0 8 0zM6.5 2.5a1.5 1.5 0 1 1 3 0v7.987l.167.15a2.5 2.5 0 1 1-3.333 0l.166-.15V2.5z" />
+              </svg>
+                <span class="badge text-bg-secondary" id="text-temperature3"></span>(C)
+            </button>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+    <div class="row justify-content-start">
+      <div class="col-md-4  col-sm-12">
+        <div class="card bordeR mb-4 shadow-sm">
+          <div class="card-body text-success">
+            <div id="chart-humidity1" class="container"></div>
+          </div>
+          <div class="card-footer bg-transparent  text-center">
+            <button type="button" class="btn btn-primary">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-moisture" viewBox="0 0 16 16">
+                <path d="M13.5 0a.5.5 0 0 0 0 1H15v2.75h-.5a.5.5 0 0 0 0 1h.5V7.5h-1.5a.5.5 0 0 0 0 1H15v2.75h-.5a.5.5 0 0 0 0 1h.5V15h-1.5a.5.5 0 0 0 0 1h2a.5.5 0 0 0 .5-.5V.5a.5.5 0 0 0-.5-.5h-2zM7 1.5l.364-.343a.5.5 0 0 0-.728 0l-.002.002-.006.007-.022.023-.08.088a28.458 28.458 0 0 0-1.274 1.517c-.769.983-1.714 2.325-2.385 3.727C2.368 7.564 2 8.682 2 9.733 2 12.614 4.212 15 7 15s5-2.386 5-5.267c0-1.05-.368-2.169-.867-3.212-.671-1.402-1.616-2.744-2.385-3.727a28.458 28.458 0 0 0-1.354-1.605l-.022-.023-.006-.007-.002-.001L7 1.5zm0 0-.364-.343L7 1.5zm-.016.766L7 2.247l.016.019c.24.274.572.667.944 1.144.611.781 1.32 1.776 1.901 2.827H4.14c.58-1.051 1.29-2.046 1.9-2.827.373-.477.706-.87.945-1.144zM3 9.733c0-.755.244-1.612.638-2.496h6.724c.395.884.638 1.741.638 2.496C11 12.117 9.182 14 7 14s-4-1.883-4-4.267z"/>
+              </svg>
+                <span class="badge text-bg-secondary" id="text-humidity1"></span>%
+            </button>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-md-4  col-sm-12">
+        <div class="card bordeR mb-4 shadow-sm">
+          <div class="card-body text-success">
+            <div id="chart-humidity2" class="container"></div>
+          </div>
+          <div class="card-footer bg-transparent  text-center">
+            <button type="button" class="btn btn-primary">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-moisture" viewBox="0 0 16 16">
+                <path d="M13.5 0a.5.5 0 0 0 0 1H15v2.75h-.5a.5.5 0 0 0 0 1h.5V7.5h-1.5a.5.5 0 0 0 0 1H15v2.75h-.5a.5.5 0 0 0 0 1h.5V15h-1.5a.5.5 0 0 0 0 1h2a.5.5 0 0 0 .5-.5V.5a.5.5 0 0 0-.5-.5h-2zM7 1.5l.364-.343a.5.5 0 0 0-.728 0l-.002.002-.006.007-.022.023-.08.088a28.458 28.458 0 0 0-1.274 1.517c-.769.983-1.714 2.325-2.385 3.727C2.368 7.564 2 8.682 2 9.733 2 12.614 4.212 15 7 15s5-2.386 5-5.267c0-1.05-.368-2.169-.867-3.212-.671-1.402-1.616-2.744-2.385-3.727a28.458 28.458 0 0 0-1.354-1.605l-.022-.023-.006-.007-.002-.001L7 1.5zm0 0-.364-.343L7 1.5zm-.016.766L7 2.247l.016.019c.24.274.572.667.944 1.144.611.781 1.32 1.776 1.901 2.827H4.14c.58-1.051 1.29-2.046 1.9-2.827.373-.477.706-.87.945-1.144zM3 9.733c0-.755.244-1.612.638-2.496h6.724c.395.884.638 1.741.638 2.496C11 12.117 9.182 14 7 14s-4-1.883-4-4.267z"/>
+              </svg>
+                <span class="badge text-bg-secondary" id="text-humidity2"></span>%
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4  col-sm-12">
+
+
+        <div class="card bordeR mb-4 shadow-sm">
+          <div class="card-body text-success">
+            <div id="chart-humidity3" class="container"></div>
+          </div>
+          <div class="card-footer bg-transparent  text-center">
+            <button type="button" class="btn btn-primary">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-moisture" viewBox="0 0 16 16">
+                <path d="M13.5 0a.5.5 0 0 0 0 1H15v2.75h-.5a.5.5 0 0 0 0 1h.5V7.5h-1.5a.5.5 0 0 0 0 1H15v2.75h-.5a.5.5 0 0 0 0 1h.5V15h-1.5a.5.5 0 0 0 0 1h2a.5.5 0 0 0 .5-.5V.5a.5.5 0 0 0-.5-.5h-2zM7 1.5l.364-.343a.5.5 0 0 0-.728 0l-.002.002-.006.007-.022.023-.08.088a28.458 28.458 0 0 0-1.274 1.517c-.769.983-1.714 2.325-2.385 3.727C2.368 7.564 2 8.682 2 9.733 2 12.614 4.212 15 7 15s5-2.386 5-5.267c0-1.05-.368-2.169-.867-3.212-.671-1.402-1.616-2.744-2.385-3.727a28.458 28.458 0 0 0-1.354-1.605l-.022-.023-.006-.007-.002-.001L7 1.5zm0 0-.364-.343L7 1.5zm-.016.766L7 2.247l.016.019c.24.274.572.667.944 1.144.611.781 1.32 1.776 1.901 2.827H4.14c.58-1.051 1.29-2.046 1.9-2.827.373-.477.706-.87.945-1.144zM3 9.733c0-.755.244-1.612.638-2.496h6.724c.395.884.638 1.741.638 2.496C11 12.117 9.182 14 7 14s-4-1.883-4-4.267z"/>
+              </svg>
+                <span class="badge text-bg-secondary" id="text-humidity3"></span>%
+            </button>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  
+
+
+
+
+
+
+
+
+    <div id="chart-pressure" class="container">
+
+    </div>
+
+  </div>
+
+
+
+
+  <!-- Optional JavaScript; choose one of the two! -->
+
+  <!-- Option 1: Bootstrap Bundle with Popper -->
+  <!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>-->
+  <script src="bootstrap.min.js"></script>
+  <!-- Option 2: Separate Popper and Bootstrap JS -->
+  <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    -->
+  <script src="chart.min.js"></script>
+</body>
+<script>
+
+
+
+
+
+  var chartT1 = new Highcharts.Chart({
+    chart: { renderTo: 'chart-temperature1' },
+    title: { text: 'Temperatura 1' },
+    series: [{
+      showInLegend: false,
+      data: []
+    }],
+    plotOptions: {
+      line: {
+        animation: false,
+        dataLabels: { enabled: true }
+      },
+      series: { color: '#059e8a' }
+    },
+    xAxis: {
+      type: 'datetime',
+      dateTimeLabelFormats: { second: '%H:%M:%S' }
+    },
+    yAxis: {
+      title: { text: 'Temperatura (C)' }
+      //title: { text: 'Temperature (Fahrenheit)' }
+    },
+    credits: { enabled: false }
+  });
+
+
+  var chartT2 = new Highcharts.Chart({
+    chart: { renderTo: 'chart-temperature2' },
+    title: { text: 'Temperatura 2' },
+    series: [{
+      showInLegend: false,
+      data: []
+    }],
+    plotOptions: {
+      line: {
+        animation: false,
+        dataLabels: { enabled: true }
+      },
+      series: { color: '#059e8a' }
+    },
+    xAxis: {
+      type: 'datetime',
+      dateTimeLabelFormats: { second: '%H:%M:%S' }
+    },
+    yAxis: {
+      title: { text: 'Temperatura  (C)' }
+      //title: { text: 'Temperature (Fahrenheit)' }
+    },
+    credits: { enabled: false }
+  });
+
+
+  var chartT3 = new Highcharts.Chart({
+    chart: { renderTo: 'chart-temperature3' },
+    title: { text: 'Temperatura 3' },
+    series: [{
+      showInLegend: false,
+      data: []
+    }],
+    plotOptions: {
+      line: {
+        animation: false,
+        dataLabels: { enabled: true }
+      },
+      series: { color: '#059e8a' }
+    },
+    xAxis: {
+      type: 'datetime',
+      dateTimeLabelFormats: { second: '%H:%M:%S' }
+    },
+    yAxis: {
+      title: { text: 'Temperatura (C)' }
+      //title: { text: 'Temperature (Fahrenheit)' }
+    },
+    credits: { enabled: false }
+  });
+
+
+
+
+  var chartH1 = new Highcharts.Chart({
+    chart: { renderTo: 'chart-humidity1' },
+    title: { text: 'Humedad 1' },
+    series: [{
+      showInLegend: false,
+      data: []
+    }],
+    plotOptions: {
+      line: {
+        animation: false,
+        dataLabels: { enabled: true }
+      }
+    },
+    xAxis: {
+      type: 'datetime',
+      dateTimeLabelFormats: { second: '%H:%M:%S' }
+    },
+    yAxis: {
+      title: { text: 'Humedad (%)' }
+    },
+    credits: { enabled: false }
+  });
+
+
+
+
+  var chartH2 = new Highcharts.Chart({
+    chart: { renderTo: 'chart-humidity2' },
+    title: { text: 'Humedad 2' },
+    series: [{
+      showInLegend: false,
+      data: []
+    }],
+    plotOptions: {
+      line: {
+        animation: false,
+        dataLabels: { enabled: true }
+      }
+    },
+    xAxis: {
+      type: 'datetime',
+      dateTimeLabelFormats: { second: '%H:%M:%S' }
+    },
+    yAxis: {
+      title: { text: 'Humedad (%)' }
+    },
+    credits: { enabled: false }
+  });
+
+
+
+  var chartH3 = new Highcharts.Chart({
+    chart: { renderTo: 'chart-humidity3' },
+    title: { text: 'Humedad 3' },
+    series: [{
+      showInLegend: false,
+      data: []
+    }],
+    plotOptions: {
+      line: {
+        animation: false,
+        dataLabels: { enabled: true }
+      }
+    },
+    xAxis: {
+      type: 'datetime',
+      dateTimeLabelFormats: { second: '%H:%M:%S' }
+    },
+    yAxis: {
+      title: { text: 'Humedad (%)' }
+    },
+    credits: { enabled: false }
+  });
+
+
+
+  setInterval(function () {
+    var tem1 = document.getElementById('text-temperature1');
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+        var x = (new Date()).getTime(),
+          y = parseFloat(this.responseText);
+        tem1.innerHTML = this.responseText;
+        //console.log(this.responseText);
+        if (chartT1.series[0].data.length > 40) {
+          chartT1.series[0].addPoint([x, y], true, true, true);
+        } else {
+          chartT1.series[0].addPoint([x, y], true, false, true);
+        }
+      }
+    };
+    xhttp.open("GET", "/temperature1", true);
+    xhttp.send();
+  }, 5000);
+
+
+  setInterval(function () {
+    var tem2 = document.getElementById('text-temperature2');
+    var xhttp2 = new XMLHttpRequest();
+    xhttp2.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+        var x = (new Date()).getTime(),
+          y = parseFloat(this.responseText);
+        tem2.innerHTML = this.responseText;
+        //console.log(this.responseText);
+        if (chartT2.series[0].data.length > 40) {
+          chartT2.series[0].addPoint([x, y], true, true, true);
+        } else {
+          chartT2.series[0].addPoint([x, y], true, false, true);
+        }
+      }
+    };
+    xhttp2.open("GET", "/temperature2", true);
+    xhttp2.send();
+  }, 5000);
+
+
+
+  setInterval(function () {
+    var tem3 = document.getElementById('text-temperature3');
+    var xhttp3 = new XMLHttpRequest();
+    xhttp3.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+        var x = (new Date()).getTime(),
+          y = parseFloat(this.responseText);
+        tem3.innerHTML = this.responseText;
+        //console.log(this.responseText);
+        if (chartT3.series[0].data.length > 40) {
+          chartT3.series[0].addPoint([x, y], true, true, true);
+        } else {
+          chartT3.series[0].addPoint([x, y], true, false, true);
+        }
+      }
+    };
+    xhttp3.open("GET", "/temperature3", true);
+    xhttp3.send();
+  }, 5000);
+
+
+
+
+
+
+
+  setInterval(function () {
+    var h1 = document.getElementById('text-humidity1');
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+        var x = (new Date()).getTime(),
+          y = parseFloat(this.responseText);
+          h1.innerHTML = this.responseText;
+        //console.log(this.responseText);
+        if (chartH1.series[0].data.length > 40) {
+          chartH1.series[0].addPoint([x, y], true, true, true);
+        } else {
+          chartH1.series[0].addPoint([x, y], true, false, true);
+        }
+      }
+    };
+    xhttp.open("GET", "/humidity1", true);
+    xhttp.send();
+  }, 5000);
+
+
+  setInterval(function () {
+    var h2 = document.getElementById('text-humidity2');
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+        var x = (new Date()).getTime(),
+          y = parseFloat(this.responseText);
+          h2.innerHTML = this.responseText;
+        //console.log(this.responseText);
+        if (chartH2.series[0].data.length > 40) {
+          chartH2.series[0].addPoint([x, y], true, true, true);
+        } else {
+          chartH2.series[0].addPoint([x, y], true, false, true);
+        }
+      }
+    };
+    xhttp.open("GET", "/humidity2", true);
+    xhttp.send();
+  }, 5000);
+
+
+  setInterval(function () {
+    var h3 = document.getElementById('text-humidity3');
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+        var x = (new Date()).getTime(),
+          y = parseFloat(this.responseText);
+          h3.innerHTML = this.responseText;
+        //console.log(this.responseText);
+        if (chartH3.series[0].data.length > 40) {
+          chartH3.series[0].addPoint([x, y], true, true, true);
+        } else {
+          chartH3.series[0].addPoint([x, y], true, false, true);
+        }
+      }
+    };
+    xhttp.open("GET", "/humidity3", true);
+    xhttp.send();
+  }, 5000);
+
+
+
+
+
+
+
+
+
+  function mostrarDatos(dato) {
+    var dispositivoID = document.getElementById('datoID');
+    dispositivoID.innerHTML = "SN:" + dato;
+  }
+  function init() {
+    console.log("entro al init");
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function () {
+      if (xmlhttp.readyState == XMLHttpRequest.DONE) {
+        if (xmlhttp.status == 200) {
+          mostrarDatos(xmlhttp.responseText);
+        }
+        else {
+          console.log('error', xmlhttp);
+        }
+      }
+    };
+
+    xmlhttp.open("GET", "/id", true);
+    xmlhttp.send();
+  }
+
+  init();
+
+
+
+
+
+
+
+
+
+
+</script>
+
+</html>
