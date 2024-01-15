@@ -65,5 +65,11 @@ class DispositivoController extends Controller
         $model->delete($id);
         $this->redirect("/dispositivos");
     }
+    public  function menu()
+    {
+       
+        print($this->view('dispositivo.index'));
+        
+    }
 
 }

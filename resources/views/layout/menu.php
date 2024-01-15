@@ -1,3 +1,9 @@
+<?php 
+namespace App\Controllers;
+
+use App\Models\Dispositivo;
+
+?> 
  <!-- Navbar -->
  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
    <!-- Left navbar links -->
@@ -155,7 +161,7 @@
            </a>
            <ul class="nav nav-treeview">
              <li class="nav-item">
-               <a href="../../index.html" class="nav-link">
+               <a href="<?php ($this->href('contact.index')); ?>" class="nav-link">
                  <i class="far fa-circle nav-icon"></i>
                  <p>listado</p>
                </a>

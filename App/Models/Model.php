@@ -40,6 +40,8 @@ class Model
             $stmt->bind_param($params, ...$data);
             $stmt->execute();
             $this->query = $stmt->get_result();
+
+            var_dump($this);
         } else {
             $this->query = $this->connection->query($sql);
         }
@@ -95,10 +97,10 @@ class Model
     }
 
     public function create($data)
-    {
+    {   
         $columns = array_keys($data); //creamos un array apartir del array de $data tomando solo los valores de key
         $columns = implode(', ', $columns); //unimos todos los valores de $columns en una sola cadena separadas pro comas
-
+        
         $values = array_values($data); //creamos un array apartir del array $data tomando solo los values del array
         // $values = "'" . implode("', '", $values) . "'"; //unimos todos los valores en un sola cadena separadas como  comillas simples
         $sql = "INSERT INTO {$this->table}({$columns})values(" . str_repeat('?,', count($values) - 1) . "?);";  // damos forma a la consulta  llamando a la tabla,columnas y valores

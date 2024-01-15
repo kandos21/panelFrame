@@ -4,6 +4,7 @@ use App\Controllers\TemplateController;
 
 // TemplateController::class,'header';
 $template = new TemplateController();
+
 $template->header();
 
 
@@ -26,11 +27,11 @@ $template->header();
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1>SN:XX3333XXXX</h1>
+              <h1>METHAT PANEL V1.0</h1>
             </div>
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item"><a href="/contacts/create">inicio</a></li>
+                <li class="breadcrumb-item"><a href="/homes/create">inicio</a></li>
                 <li class="breadcrumb-item active">DIETA 02</li>
               </ol>
             </div>
@@ -63,7 +64,7 @@ $template->header();
             <div class="info-box bg-success">
               <span class="info-box-icon"><i class="fas fa-temperature-low"></i></span>
               <div class="info-box-content">
-                <span class="info-box-text">Temperatura promedio</span>
+                <span class="info-box-text">Terminales Totales</span>
                 <span class="info-box-number">50 ¨C</span>
                 <div class="progress">
                   <div class="progress-bar" style="width: 50%"></div>
@@ -321,15 +322,15 @@ $template->header();
 
 
 
-<?php  foreach ($contacts as $contact) : 
+<?php  foreach ($homes as $home) : 
 ?>
  <tr>
-                    <td><a href="/contacts/<?= $contact['id_temperatura'] ?>"><?= $contact['id_sensor'] ?></a></td>
-                    <td><?= $contact['temperatura'] ?></td>
-                    <td><?= $contact['ids'] ?></td>
+                    <td><a href="/homes/<?= $home['id_temperatura'] ?>"><?= $home['id_sensor'] ?></a></td>
+                    <td><?= $home['temperatura'] ?></td>
+                    <td><?= $home['ids'] ?></td>
                     
-                    <td><?= $contact['id_modulo'] ?></td>
-                    <td><?= $contact['fecha'] ?></td>
+                    <td><?= $home['id_modulo'] ?></td>
+                    <td><?= $home['fecha'] ?></td>
                   </tr>
 <?php endforeach 
 ?>

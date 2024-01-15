@@ -1,34 +1,69 @@
 <?php
- 
- namespace App\Controllers; 
- use App\Models\Contact;
-//use App\Models\Model;
 
+//use App\Controllers\Controller;
+namespace App\Controllers;
+
+use App\Models\Home;
+//use App\Models\Model;
 
 class HomeController extends Controller
 {
+
     public function index()
-    {
-    $contacModel=new Contact();  
-    // return $contacModel->all();
-    //return $contacModel->find(1100);
-    //return $contacModel->where('temperatura','30');
-    //return $contacModel->where('temperatura','30')->get();
-    //return $contacModel->where('temperatura','30')->first();
-    //return $contacModel->update(1751,['temperatura'=>'46.2','fecha'=>'2023-06-15 09:41:57','id_sensor'=>'1']);
+    {  
+       
+        $model= new home;
+        $homes=$model->all();
+        //compact() genera un array con la estructura ['contact'=>$contacts]
+      return $this->view('home.index',compact('homes'));
+    }
+    public function create()
+    {   
+        return $this->view('home.create');
+    }
+    public function store()
+    { 
+        
+           
+          $data=$_POST;
+        //return $data; //retonar datos del formulario
+         $model= new home;
 
-    //return $contacModel->where('temperatura','>=',35)->get();
+         $model->create($data);
 
-    //return $contacModel->update(1748,[ 'temperatura'=>'24.9','id_sensor'=>'1','fecha'=>'2023-08-05 12:10:03']);
-   // return $contacModel->delete(1751);
-    //return $contacModel->where("temperatura","30 ' OR 'a'='a' ")->get();
-
-   // return $contacModel->first();
-    return $this->view('home',['title'=>'Inicio','descripcion'=>'pagina inicio 2023']);
+        return $this->redirect('/contacts');
+        
+     
+    }
+    public function show($id)
+    {  
+        $model= new home;
+        $contact=$model->find($id);
+    
+        return $this->view("home.show",compact('home'));
     }
 
-  
+    public function edit($id)
+    {   
+        $model= new home;
+        $contact=$model->find($id);
+        return $this->view("home.edit",compact('home'));
+    }
+    public function update($id)
+    {
+       $data=$_POST;
+       $model= new home;
 
-    
+       $model->update($id,$data);
+       $this->redirect("/homes/{$id}");
+
+       
+    }
+    public function destroy($id)
+    {
+        $model=new home;
+        $model->delete($id);
+        $this->redirect("/homes");
+    }
 
 }

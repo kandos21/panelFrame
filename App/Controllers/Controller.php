@@ -25,6 +25,29 @@ class Controller
         }
     }
 
+
+    public function href($route ,$data=[])
+    {
+        extract($data);
+      $route=str_replace('.','/',$route);
+      if(file_exists("../resources/views/{$route}.php"))
+      {     
+        print "{$route}";
+      }
+      else{
+        return "La ruta no existe";
+      }
+      
+
+    }
+
+ 
+    
+
+
+   
+
+
     public function redirect($route)  {
         header("Location:{$route}");
         

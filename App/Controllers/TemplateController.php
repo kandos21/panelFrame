@@ -22,6 +22,9 @@ namespace App\Controllers;
         {  
            print($this->view('layout.footer'));
         }
+
+        
+
         
         
     }

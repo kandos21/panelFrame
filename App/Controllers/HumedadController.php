@@ -22,6 +22,8 @@ use App\Models\Humedad;
             //compact() genera un array con la estructura ['contact'=>$contacts]
              //return $this->view('contact.index',compact('contacts'));
         }
+
+        
         public function create()
         {  print("entro a create");
             return $this->view('humedad.create');
@@ -45,6 +47,11 @@ use App\Models\Humedad;
     
            // return $this->redirect('/dispositivo');
         }
+
+
+
+
+        
         public function show($id)
         {
             return "se encontrara el id $id";
