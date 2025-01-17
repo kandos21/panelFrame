@@ -88,7 +88,7 @@ $template->header();
                   <div class="progress-bar" style="width: 2%"></div>
                 </div>
                 <span class="progress-description">
-                ultimas 2 hrs.
+                  ultimas 2 hrs.
                 </span>
               </div>
 
@@ -101,7 +101,7 @@ $template->header();
           <div class="col-md-6 col-sm-6 col-6">
             <div class="card">
               <div class="card-header">
-                 Sensor Temperatura 1
+                Sensor Temperatura 1
               </div>
               <div class="card-body">
                 <div id="chart">
@@ -113,7 +113,7 @@ $template->header();
           <div class="col-md-6 col-sm-6 col-6">
             <div class="card">
               <div class="card-header">
-                 Sensor Humedad 2
+                Sensor Humedad 2
               </div>
               <div class="card-body">
                 <div id="chart">
@@ -125,7 +125,7 @@ $template->header();
         </div>
 
 
-       
+
 
         <div class="row">
           <div class="col-md-12">
@@ -151,24 +151,82 @@ $template->header();
                       <table id="example1" class="table table-bordered table-striped dataTable dtr-inline" aria-describedby="example1_info">
                         <thead>
                           <tr>
-                            <th class="sorting sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">Rendering engine</th>
-                            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending">Browser</th>
+                            <th class="sorting sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">#</th>
+                            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending">ID</th>
+                            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending">IDS</th>
+                            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending">Nombre</th>
+                            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending">Fecha</th>
+                            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending">Ubicacion</th>
+                            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending">Tp</th>
+                            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending">Hp</th>
+                            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending">Bateria</th>
+                            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending">Accciones</th>
                           </tr>
                         </thead>
                         <tbody>
                           <tr class="odd">
-                            <td class="dtr-control sorting_1" tabindex="0">Gecko</td>
-                            <td>Firefox 1.0</td>
+                            <td class="dtr-control sorting_1" tabindex="0">1</td>
+                            <td>F3453453FDF3</td>
+                            <td>DIETA-torre 4</td>
+                            <td>Edificio A</td>
+                            <td>24.5</td>
+                            <td>60%</td>
+                            <td>04/09/2024 14:25:36</td>
+                            <td><span class="badge bg-danger">55%</span></td>
+                            <td>
+                              <div class="btn-group">
+                                <button type="button" class="btn btn-warning">Acciones</button>
+                                <button type="button" class="btn btn-warning dropdown-toggle dropdown-icon" data-toggle="dropdown">
+                                  <span class="sr-only">Toggle Dropdown</span>
+                                </button>
+                                <div class="dropdown-menu" role="menu">
+                                  <a class="dropdown-item" href="#">Action</a>
+                                  <a class="dropdown-item" href="#">Another action</a>
+                                  <a class="dropdown-item" href="#">Something else here</a>
+                                  <div class="dropdown-divider"></div>
+                                  <a class="dropdown-item" href="#">Separated link</a>
+                                </div>
+                              </div>
+                            </td>
+
+                          </tr>
+
+
+                          <tr class="even">
+                            <td class="dtr-control sorting_1" tabindex="0">1</td>
+                            <td>F3453453FDF3</td>
+                            <td>0.04</td>
+                            <td>DIETA-torre 4</td>
+                            <td>Edificio A</td>
+                            <td>24.5</td>
+                            <td>60%</td>
+                            <td>04/09/2024 14:25:36</td>
+                            <td><span class="badge bg-danger">55%</span></td>
+                            <td>
+                              <div class="btn-group">
+                                <button type="button" class="btn btn-warning">Acciones</button>
+                                <button type="button" class="btn btn-warning dropdown-toggle dropdown-icon" data-toggle="dropdown">
+                                  <span class="sr-only">Toggle Dropdown</span>
+                                </button>
+                                <div class="dropdown-menu" role="menu">
+                                  <a class="dropdown-item" href="#">Action</a>
+                                  <a class="dropdown-item" href="#">Another action</a>
+                                  <a class="dropdown-item" href="#">Something else here</a>
+                                  <div class="dropdown-divider"></div>
+                                  <a class="dropdown-item" href="#">Separated link</a>
+                                </div>
+                              </div>
+                            </td>
 
                           </tr>
                           <tr class="even">
                             <td class="dtr-control sorting_1" tabindex="0">Gecko</td>
-                            <td>Firefox 1.5</td>
+
 
                           </tr>
                           <tr class="odd">
                             <td class="dtr-control sorting_1" tabindex="0">Gecko</td>
-                            <td>Firefox 2.0</td>
+
 
                           </tr>
                           <tr class="even">
@@ -322,7 +380,7 @@ $template->header();
 
 
 
-<?php  foreach ($homes as $home) : 
+<?php  /*foreach ($homes as $home) : 
 ?>
  <tr>
                     <td><a href="/homes/<?= $home['id_temperatura'] ?>"><?= $home['id_sensor'] ?></a></td>
@@ -333,4 +391,6 @@ $template->header();
                     <td><?= $home['fecha'] ?></td>
                   </tr>
 <?php endforeach 
+
+*/
 ?>

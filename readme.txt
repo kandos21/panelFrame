@@ -14,6 +14,7 @@ Configuracion modo desarollo
 
 
 
+
        <?/*foreach ($contacts as $contacts) : */?>
             
                  
@@ -21,3 +22,20 @@ Configuracion modo desarollo
                 
             
         <?php /*endforeach*/ ?>
+
+        Instalacion de software  para conexiones
+           nodejs,npm,git,editor de codigo,mosquitto.
+
+
+       Configuracion de mosquitto
+       -windows
+        -iniciar el servicio de mosquitto broker 
+        editar el archivo "mosquitto.conf" que se encuentra en "C:\Program Files\mosquitto" y agregar el siguiente codigo.
+           
+           listener 1883
+           allow_anonymous true
+        
+        -Verificar que el puerto 1883 este abierto en el firewall de windows si en dado caso no se crea una nueva regla de entrada y salida
+
+
+        
